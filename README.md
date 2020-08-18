@@ -1,5 +1,11 @@
 # Custom Nginx
 
+Simple Nginx redirect fork to allow fast troubleshooting.
+
+It intends only to:
+- Define listening nginx port 
+- Setup a proxy target
+
 ## Container Variables
 
 ```
@@ -9,7 +15,7 @@ PROXY_TARGET: Nginx proxy target
 
 ## Build
 ```
-docker build -t custom-nginx .
+docker-compose build
 ```
 
 ## Run
