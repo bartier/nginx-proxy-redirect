@@ -1,4 +1,4 @@
-# Custom Nginx
+# Nginx Proxy Redirect
 
 Simple Nginx redirect fork to allow fast troubleshooting.
 
