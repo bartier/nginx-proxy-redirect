@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # Unique key of the Deployment instance
+  name: nginx-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-proxy
+  template:
+    metadata:
+      labels:
+        # Apply this label to pods and default
+        app: nginx-proxy
+    spec:
+      containers:
+        - name: nginx-proxy
+          # Run this image
+          image: bartier/nginx-proxy-redirect:latest # 'imagePullPolicy' defaults to 'Always' if :latest tag is specified
+          env:
+            - name: NGINX_PORT
+              value: '8080'
+            - name: PROXY_TARGET
+              value: 'http://google.com/'
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+            successThreshold: 1
+            periodSeconds: 10
+            initialDelaySeconds: 1
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"

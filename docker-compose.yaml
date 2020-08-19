@@ -1,8 +1,8 @@
 version: '3'
 services:
-  custom-nginx:
+  nginx-proxy:
     build: .
-    image: 'custom-nginx'
+    image: 'nginx-proxy'
     environment:
       NGINX_PORT: 8080
       PROXY_TARGET: https://google.com/
