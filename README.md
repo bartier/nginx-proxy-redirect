@@ -1,6 +1,6 @@
 # Nginx Proxy Redirect
 
-Simple Nginx redirect fork to allow fast troubleshooting.
+Simple Nginx redirect fork.
 
 It intends only to:
 - Define listening nginx port 
